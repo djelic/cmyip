@@ -46,7 +46,7 @@ if (isset($_GET['stats'])) {
 	exit();
 } elseif (isset($_GET['dist'])) {
 	$query = "SELECT COUNT(*) AS x, ip_address FROM ip_log " .
-		"GROUP BY ip_address ORDER BY x;";
+		"GROUP BY ip_address ORDER BY x DESC;";
 	$result = mysql_query($query, $connection);
 	if (!$result) {
 		die("Database query failed: " . mysql_error());
