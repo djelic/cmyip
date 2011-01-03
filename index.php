@@ -44,6 +44,23 @@ if (isset($_GET['stats'])) {
 	echo "</table>\r\n";
 	mysql_close($connection);
 	exit();
+} elseif (isset($_GET['dist'])) {
+	$query = "SELECT COUNT(*) AS x, ip_address FROM ip_log " .
+		"GROUP BY ip_address ORDER BY x;";
+	$result = mysql_query($query, $connection);
+	if (!$result) {
+		die("Database query failed: " . mysql_error());
+	}
+	echo "<table border=\"1\">\r\n";
+	echo "<tr><td><font size=\"2\" face=\"Verdana\"><strong>No.:</strong></font></td>" .
+		"<td><font size=\"2\" face=\"Verdana\"><strong>IP address:</strong></font></td>";
+	while ($row = mysql_fetch_array($result)) {
+		echo "<tr><td><font size=\"2\" face=\"Verdana\">{$row[0]}:</font></td>" .
+			"<td><font size=\"2\" face=\"Verdana\">{$row[1]}</font></td>";
+	}
+	echo "</table>\r\n";
+	mysql_close($connection);
+	exit();
 }
 ?>
 <?php
