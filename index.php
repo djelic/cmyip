@@ -1,6 +1,6 @@
 <?php
 /*
- *      index.php
+ *      cmyip.php
  *      
  *      Copyright 2010 David Jelic <djelic@buksna.net>
  *      
@@ -38,7 +38,7 @@ if (isset($_GET['stats'])) {
 		"<td><font size=\"2\" face=\"Verdana\"><strong>Time:</strong></font></td>\r\n";
 	while ($row = mysql_fetch_array($result)) {
 		echo "<tr><td><font size=\"2\" face=\"Verdana\">{$row[0]}:</font></td>" .
-			"<td><font size=\"2\" face=\"Verdana\"><a href=\"http://burgulgoth.buksna.net/whois/?q={$row[1]}\">{$row[1]}</a></font></td>" .
+			"<td><font size=\"2\" face=\"Verdana\">{$row[1]}</font></td>" .
 			"<td><font size=\"2\" face=\"Verdana\">{$row[2]}</font></td></tr>\r\n";
 	}
 	echo "</table>\r\n";
